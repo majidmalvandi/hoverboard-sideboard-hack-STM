@@ -21,7 +21,7 @@ jobs:
     # Build with make
     - name: make
       env: 
-        VARIANT: VARIANT_DEBUG
+        VARIANT: VARIANT_HOVERBOARD
       run: make
 
     # Build with Platformio
@@ -30,7 +30,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install --upgrade platformio
     - name: PlatformIO Run
-      run: pio run
+      run: pio run -e VARIANT_HOVERBOARD
 
     - name: 'Upload Build Artifact'
       uses: actions/upload-artifact@v4
